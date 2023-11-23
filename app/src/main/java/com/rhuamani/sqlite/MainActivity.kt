@@ -1,6 +1,8 @@
 package com.rhuamani.sqlite
 
 import android.app.AlertDialog
+import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -59,7 +61,10 @@ class MainActivity : AppCompatActivity() {
         val ventana = AlertDialog.Builder(this)
         ventana.setTitle("Informacion")
         ventana.setMessage(mensaje)
-        ventana.setPositiveButton("Aceptar", null)
+        ventana.setPositiveButton("Aceptar", DialogInterface.OnClickListener { dialogInterface, i ->
+            val intent = Intent(this, ListarActivity::class.java)
+            startActivity(intent)
+        })
         ventana.create().show()
     }
 
