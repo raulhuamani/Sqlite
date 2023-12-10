@@ -34,6 +34,7 @@ class ListarActivity : AppCompatActivity() {
     }
     private fun mostrarPersonas(){
         val listaPersonas = personaDAO.cargarPersona()
+        adaptador?.contexto(this)
         adaptador?.agregarItems(listaPersonas)
         Log.d("===", "${listaPersonas.size}")
 
